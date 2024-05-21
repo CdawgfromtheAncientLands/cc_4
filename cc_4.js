@@ -24,4 +24,8 @@ class EV extends Car {
     constructor(charge) {
         this.charge = charge
     }
+    //Implement a chargeBattery method in the EV class that takes an argument chargeTo and sets the battery charge to this value.
+    chargeBattery(chargeTo) {
+        this.charge = chargeTo
+    }
 }
