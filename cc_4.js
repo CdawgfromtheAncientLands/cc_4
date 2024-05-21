@@ -24,8 +24,11 @@ class Car {
 }
 //Extend the Car class to create an EV class that also includes a charge property representing the current battery charge in percentage.
 class EV extends Car {
-    constructor(charge) {
-        this.charge = charge;
+    constructor(make, currentKPH, charge) {
+        super()
+        this.make = make;
+        this.currentKPH = Number(currentKPH);
+        this.charge = Number(charge);
     }
     //Implement a chargeBattery method in the EV class that takes an argument chargeTo and sets the battery charge to this value.
     chargeBattery(chargeTo) {
@@ -33,10 +36,25 @@ class EV extends Car {
     }
     //Override the accelerate method in the EV class to increase the car's speed by 20 km/h and decrease the battery charge by 1%.
     accelerate() {
-        this.currentKPH += accelerate_KPHvalue;
+        this.currentKPH += EVaccelerate_KPHvalue;
         this.charge -= EVaccelerate_chargePercentDecrease;
         //Log the new speed and charge level in the console with a message like: "Tesla going at 140 km/h, with a charge of 22%"
-        console.log (this.make + "going at "+ this.currentKPH + "km/h, with a charge of " + this.charge + "%.");
+        console.log (this.make + " going at "+ this.currentKPH + "km/h, with a charge of " + this.charge + "%.");
     }
-    
+}
+//Create an EV object using the provided test data and experiment with calling the accelerate, brake, and chargeBattery methods.
+//Car 1: A 'Tesla' starting at 120 km/h, with a battery charge of 23%.
+carOne = new EV("Tesla", 120, 23)
+//Observe and document the behavior of the EV object, particularly how the battery charge impacts the ability to accelerate.
+//accelerating 25 times, setting battery to 100, accelerating 100 times, then braking 20 times.
+for (let i = 0; i < 25; i++) {
+    carOne.accelerate()
+}
+carOne.chargeBattery(100)
+
+for (let i = 0; i < 100; i++) {
+    carOne.accelerate()
+}
+for (let i = 0; i < 20; i++) {
+    carOne.brake()
 }
