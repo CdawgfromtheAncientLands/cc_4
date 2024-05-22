@@ -34,10 +34,15 @@ class EV extends Car {
     }
     //Override the accelerate method in the EV class to increase the car's speed by 20 km/h and decrease the battery charge by 1%.
     accelerate() {
+        if (this.charge <= EVaccelerate_chargePercentDecrease) {
+            console.log ("The EV has insufficient charge to accelerate.")
+        }
+        else {
         this.currentKPH += EVaccelerate_KPHvalue;
         this.charge -= EVaccelerate_chargePercentDecrease;
         //Log the new speed and charge level in the console with a message like: "Tesla going at 140 km/h, with a charge of 22%"
         console.log (this.make + " going at "+ this.currentKPH + "km/h, with a charge of " + this.charge + "%.");
+        }
     }
 }
 //Create an EV object using the provided test data and experiment with calling the accelerate, brake, and chargeBattery methods.
