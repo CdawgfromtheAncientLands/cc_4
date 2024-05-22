@@ -25,9 +25,7 @@ class Car {
 //Extend the Car class to create an EV class that also includes a charge property representing the current battery charge in percentage.
 class EV extends Car {
     constructor(make, currentKPH, charge) {
-        super()
-        this.make = make;
-        this.currentKPH = Number(currentKPH);
+        super(make, currentKPH)
         this.charge = Number(charge);
     }
     //Implement a chargeBattery method in the EV class that takes an argument chargeTo and sets the battery charge to this value.
